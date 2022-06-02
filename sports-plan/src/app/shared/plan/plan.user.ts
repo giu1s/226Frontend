@@ -1,7 +1,8 @@
-type Plan = {
+import { Exercise } from "../exercise/exercise.model";
+
+export interface Plan {
     id: number;
     name: String;
-    // Array muss hier rein
     exercises: Exercise[]; 
     note: String;
 };

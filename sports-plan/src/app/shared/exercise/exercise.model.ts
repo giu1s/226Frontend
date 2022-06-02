@@ -1,4 +1,4 @@
-type Exercise = {
+export interface Exercise  {
     id: number;
     name: String;
     reps: number;

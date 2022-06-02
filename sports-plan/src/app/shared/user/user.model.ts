@@ -1,7 +1,7 @@
-type User = {
+export interface User  {
     id: number;
     firstname: String;
     lastname: String;
-    birthdate: Date;
+    birthdate: String;
     height: number
 };

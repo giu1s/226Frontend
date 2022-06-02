@@ -1,4 +1,4 @@
-type Measurement = {
+export interface Measurement  {
     id: number;
     date: Date;
     weight: number;
