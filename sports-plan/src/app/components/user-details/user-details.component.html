@@ -1,6 +1,9 @@
 <p>user-details works!</p>
-<p>{{this._user.id}}</p>
-<p>{{this._user.firstname}}</p>
-<p>{{this._user.lastname}}</p>
-<p>{{this._user.birthdate}}</p>
-<p>{{this._user.height}}</p>
+<div *ngFor="let user of _users">
+    <p>{{user.id}}</p>
+    <p>{{user.firstname}}</p>
+    <p>{{user.lastname}}</p>
+    <p>{{user.birthdate}}</p>
+    <p>{{user.height}}</p>
+</div>
+
