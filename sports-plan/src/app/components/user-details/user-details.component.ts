@@ -16,7 +16,8 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this._userService.getAllUser().subscribe(users => {
-      this._user = users.get(0);
+      console.log(users);
+      this._user = users[0];
     });
   }
 

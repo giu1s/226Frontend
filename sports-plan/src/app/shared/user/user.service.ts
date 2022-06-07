@@ -13,15 +13,18 @@ export class UserService {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
       'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Methods': 'HEAD, GET, POST, PUT, DELETE',
+      'Access-Control-Allow-Origin': 'http://localhost:10000'
     })
   }
-  constructor(private _http: HttpClient) { }
+  
+  constructor(private _http: HttpClient) {
+    
+   }
 
 
   public getAllUser(): Observable<any> {
-    return this._http.get<any>('http://localhost:10000/api/allusers');
+    return this._http.get<any>('http://localhost:10000/api/allusers', this._httpOptions );
 
   }
 }
