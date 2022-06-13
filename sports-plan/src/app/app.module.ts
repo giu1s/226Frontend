@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { HomeComponent } from './home/home.component';
+import { TopbarComponent } from './shared/topbar/topbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
