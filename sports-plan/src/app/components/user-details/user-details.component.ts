@@ -10,13 +10,15 @@ import { User } from 'src/app/shared/user/user.model';
 
 export class UserDetailsComponent implements OnInit {
 
-  public user: User = {id:0 , firstname: "", lastname: "", birthdate: "", height: 0 };
+  public currentUser: User = {id:0 , firstname: "", lastname: "", birthdate: "", height: 0 };
   public users!: User[];
-  
+  public edit: boolean = false;
+
   constructor(private _userService: UserService) { }
 
   ngOnInit(): void {
-    this.getAllUser();
+    // this.getAllUser();
+    this.getUserDetails();
   }
 
   public getAllUser(){
@@ -26,4 +28,13 @@ export class UserDetailsComponent implements OnInit {
     });
   }
 
+  public getUserDetails(){
+    this._userService.getUser(1).subscribe(user => this.currentUser = user);
+  }
+
+  public editUser(){
+    if (this.edit) 
+    {this.edit = false;}
+    else this.edit = true;
+  }
 }

@@ -1,9 +1,22 @@
-<p>user-details works!</p>
-<div *ngFor="let user of users">
-    <p>{{user.id}}</p>
-    <p>{{user.firstname}}</p>
-    <p>{{user.lastname}}</p>
-    <p>{{user.birthdate}}</p>
-    <p>{{user.height}}</p>
-</div>
+<div id="user">
+    <div *ngIf="!edit">
+        <div id=userDetails>
+            <div class="title">
+                <h1>Details</h1>
+                <button (click)="this.editUser()" class="white-icon" mat-icon-button>
+                    <mat-icon class="white-icon">edit</mat-icon>
+                </button>
+            </div>
 
+            <div>
+                <p>{{currentUser.firstname}}</p>
+                <p>{{currentUser.lastname}}</p>
+                <p>{{currentUser.birthdate}}</p>
+                <p>{{currentUser.height}} cm</p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="edit">
+        <sports-edit-user></sports-edit-user>
+    </div>
+</div>
