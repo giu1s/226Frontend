@@ -1,0 +1,18 @@
+#userDetails {
+    margin-left: 10px;
+}
+
+.title {
+    display: flex;
+    flex-direction: row
+}
+
+.white-icon {
+    border: none;
+    background: none;
+    padding-left: 10px;
+}
+
+#user{
+    margin: 10px;
+}
