@@ -10,15 +10,19 @@ import { User } from 'src/app/shared/user/user.model';
 
 export class UserDetailsComponent implements OnInit {
 
-  public _user: User = {id:0 , firstname: "", lastname: "", birthdate: "", height: 0 };
-  public _users!: User[];
+  public user: User = {id:0 , firstname: "", lastname: "", birthdate: "", height: 0 };
+  public users!: User[];
   
   constructor(private _userService: UserService) { }
 
   ngOnInit(): void {
+    this.getAllUser();
+  }
+
+  public getAllUser(){
     this._userService.getAllUser().subscribe(users => {
       console.log(users);
-      this._users = users;
+      this.users = users;
     });
   }
 
