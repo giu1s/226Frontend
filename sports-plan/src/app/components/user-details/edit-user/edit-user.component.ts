@@ -1,7 +1,9 @@
+import { convertFromMaybeForwardRefExpression } from '@angular/compiler/src/render3/util';
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { User } from 'src/app/shared/user/user.model';
 import { UserService } from 'src/app/shared/user/user.service';
-
+import { UserDetailsComponent } from '../user-details.component';
 @Component({
   selector: 'sports-edit-user',
   templateUrl: './edit-user.component.html',
@@ -9,8 +11,13 @@ import { UserService } from 'src/app/shared/user/user.service';
 })
 export class EditUserComponent implements OnInit {
   public currentUser: User = {id:0 , firstname: "", lastname: "", birthdate: "", height: 0 };
-  
-  constructor(private _userService: UserService) { }
+  public firstnameControl = new FormControl();
+  public lastnameControl = new FormControl();
+  public heightControl = new FormControl();
+  public birthdateControl = new FormControl();
+
+  constructor(private _userService: UserService,
+    private _userDetailsComponent:  UserDetailsComponent) { }
 
   ngOnInit(): void {
     this.getUserDetails();
@@ -18,10 +25,25 @@ export class EditUserComponent implements OnInit {
   
 
   public getUserDetails(){
-    this._userService.getUser(1).subscribe(user => this.currentUser = user);
+    this._userService.getUser(1).subscribe(user => {
+      this.currentUser = user
+      this.setForm();
+    });
   }
 
   public save(){
+    this.currentUser.firstname = this.firstnameControl.value;
+    this.currentUser.lastname = this.lastnameControl.value;
+    this.currentUser.birthdate = this.birthdateControl.value;
+    this.currentUser.height = this.heightControl.value;
+    this._userService.updateUser(this.currentUser).subscribe();
+    this._userDetailsComponent.editUser();
+  }
 
+  public setForm(){
+    this.firstnameControl.setValue(this.currentUser.firstname);
+    this.lastnameControl.setValue(this.currentUser.lastname);
+    this.birthdateControl.setValue(this.currentUser.birthdate);
+    this.heightControl.setValue(this.currentUser.height);
   }
 }

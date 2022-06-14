@@ -2,26 +2,28 @@
     <div class="title">
         <h1>Edit details</h1>
         <button (click)="this.save()" class="white-icon" mat-icon-button>
-            <mat-icon class="white-icon">edit</mat-icon>
+            <mat-icon class="white-icon">done</mat-icon>
         </button>
     </div>
-    <div id="userForm">
-        <mat-form-field appearance="fill">
-            <mat-label>Firstname</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Lastname</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Birthdate</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Height</mat-label>
-            <input matInput>
-        </mat-form-field>
+    <div>
+        <form  id="userForm" action="">
+            <mat-form-field appearance="fill">
+                <mat-label>Firstname</mat-label>
+                <input type="text" matInput [formControl]="firstnameControl">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Lastname</mat-label>
+                <input type="text" matInput [formControl]="lastnameControl">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Birthdate</mat-label>
+                <input type="text" matInput [formControl]="birthdateControl">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Height</mat-label>
+                <input type="text" matInput [formControl]="heightControl">
+            </mat-form-field>
+        </form>
     </div>
 
 </div>

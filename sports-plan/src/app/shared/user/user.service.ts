@@ -37,10 +37,10 @@ export class UserService {
   }
 
   public createUser(user: User): Observable<User>{
-    return this._http.post<User>('http://localhost:10000/api/user',user, this._httpOptions);
+    return this._http.post<User>('http://localhost:10000/api/user', user, this._httpOptions);
   }
   
   public updateUser(user: User): Observable<User>{
-    return this._http.put<User>('http://localhost:10000/api/user',user, this._httpOptions);
+    return this._http.put<User>('http://localhost:10000/api/user', user, this._httpOptions);
   }
 }

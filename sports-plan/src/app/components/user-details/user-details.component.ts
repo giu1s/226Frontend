@@ -23,18 +23,21 @@ export class UserDetailsComponent implements OnInit {
 
   public getAllUser(){
     this._userService.getAllUser().subscribe(users => {
-      console.log(users);
       this.users = users;
     });
   }
 
   public getUserDetails(){
+    console.log("get user")
     this._userService.getUser(1).subscribe(user => this.currentUser = user);
   }
 
+  // TODO: move this to user service
   public editUser(){
-    if (this.edit) 
-    {this.edit = false;}
+    if (this.edit) {
+      this.edit = false;
+      this.getUserDetails();
+    }
     else this.edit = true;
   }
 }
