@@ -1,1 +1,40 @@
-<p>edit-measurements works!</p>
+<div id=edit>
+    <div class="title">
+        <h1>Edit Measurement</h1>
+        <button (click)="this.save()" class="white-icon" mat-icon-button>
+            <mat-icon class="white-icon">done</mat-icon>
+        </button>
+    </div>
+    <div>
+        <form  id="measurementForm" action="">
+            <mat-form-field appearance="fill">
+                <mat-label>Date</mat-label>
+                <input type="text" matInput [formControl]="dateControl">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Weight</mat-label>
+                <input type="text" matInput [formControl]="weightControl">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>BodyFat</mat-label>
+                <input type="text" matInput [formControl]="bodyFatControl">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Waist</mat-label>
+                <input type="text" matInput [formControl]="waistControl">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Belly</mat-label>
+                <input type="text" matInput [formControl]="bellyControl">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Chest</mat-label>
+                <input type="text" matInput [formControl]="chestControl">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Hips</mat-label>
+                <input type="text" matInput [formControl]="hipstControl">
+            </mat-form-field>
+            </form>
+    </div>
+</div>

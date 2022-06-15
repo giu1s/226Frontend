@@ -3,12 +3,12 @@
         <button mat-raised-button (click)="addData()">
             Add data
         </button>
-        <button mat-raised-button [disabled]="!dataSource.length" (click)="removeData()">
+        <button mat-raised-button [disabled]="!measurements.length" (click)="removeData()">
             Remove data
         </button>
     </div>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="measurements" class="mat-elevation-z8">
         <!-- date Column -->
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef>Date</th>
