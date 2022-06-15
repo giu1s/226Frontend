@@ -1,5 +1,6 @@
 #userDetails {
-    margin-left: 10px;
+    margin: 40px;
+    margin-top:70px;
 }
 
 .title {
@@ -15,4 +16,5 @@
 
 #user{
     margin: 10px;
+    width: 350px;
 }

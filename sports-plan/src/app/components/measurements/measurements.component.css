@@ -1,0 +1,17 @@
+button {
+    margin: 10px;
+}
+
+element.style {
+    padding: 10px;
+}
+
+
+th,
+td {
+    width: 150px;
+}
+
+#middle{
+    text-align: center; 
+}
