@@ -3,9 +3,9 @@
         <button mat-raised-button (click)="addData()">
             Add data
         </button>
-        <button mat-raised-button [disabled]="!measurements.length" (click)="removeData()">
+        <!-- <button mat-raised-button [disabled]="!measurements.length" (click)="removeData()">
             Remove data
-        </button>
+        </button> -->
     </div>
 
     <table mat-table [dataSource]="measurements" class="mat-elevation-z8">
@@ -53,7 +53,9 @@
             <td mat-cell *matCellDef="let element">{{element.hips}}</td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>
+<br>
+<sports-edit-measurements *ngIf="this.edit"></sports-edit-measurements>

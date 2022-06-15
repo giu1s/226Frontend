@@ -17,6 +17,8 @@ import { MeasurementsComponent } from './components/measurements/measurements.co
 import { MatTableModule } from '@angular/material/table' 
 import { MatButtonModule } from '@angular/material/button';
 import { EditMeasurementsComponent } from './components/measurements/edit-measurements/edit-measurements.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { EditMeasurementsComponent } from './components/measurements/edit-measur
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

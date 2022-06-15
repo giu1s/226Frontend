@@ -1,6 +1,6 @@
 export interface Measurement  {
     id: number;
-    date: String;
+    date: string;
     weight: number;
     bodyFat: number;
     waist: number;
