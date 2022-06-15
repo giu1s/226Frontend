@@ -13,6 +13,10 @@ import { EditUserComponent } from './components/user-details/edit-user/edit-user
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MeasurementsComponent } from './components/measurements/measurements.component';
+import { MatTableModule } from '@angular/material/table' 
+import { MatButtonModule } from '@angular/material/button';
+import { EditMeasurementsComponent } from './components/measurements/edit-measurements/edit-measurements.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     UserDetailsComponent,
     HomeComponent,
     TopbarComponent,
-    EditUserComponent
+    EditUserComponent,
+    MeasurementsComponent,
+    EditMeasurementsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatFormFieldModule, 
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
