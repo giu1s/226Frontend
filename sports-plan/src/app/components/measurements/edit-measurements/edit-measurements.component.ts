@@ -43,8 +43,8 @@ export class EditMeasurementsComponent implements OnInit {
     this._newMeasurement.belly = this.bellyControl.value;
     this._newMeasurement.chest = this.chestControl.value;
     this._newMeasurement.hips = this.hipsControl.value;
-    this._measurementService.createMeasurement(this._newMeasurement).subscribe(() => this._measurementComponent.editMeasurement());
-    
 
+
+    this._measurementService.createMeasurement(this._newMeasurement).subscribe(() => this._measurementComponent.editMeasurement());
   }
 }
