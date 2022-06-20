@@ -3,10 +3,10 @@
         <button mat-raised-button (click)="addData()">
             Add data
         </button>
-        <button *ngIf="this.currentMeasurement" mat-raised-button (click)="updateData()">
+        <button *ngIf="this.currentMeasurement.id > 0" mat-raised-button (click)="updateData()">
             Update data
         </button>
-        <button *ngIf="this.currentMeasurement" mat-raised-button (click)="removeData()">
+        <button *ngIf="this.currentMeasurement.id > 0" mat-raised-button (click)="removeData()">
             Delete data
         </button>
         <!-- <button mat-raised-button [disabled]="!measurements.length" (click)="removeData()">
