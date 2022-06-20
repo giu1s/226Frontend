@@ -34,13 +34,13 @@ export class EditMeasurementsComponent implements OnInit {
     private _measurementComponent: MeasurementsComponent) { }
 
   ngOnInit(): void {
-    if (this.measurement){
+    if (this.measurement) {
       this.setMeasurement(this.measurement);
       this.update = true;
     }
   }
 
-  public getMeasurement(): Measurement{
+  public getMeasurement(): Measurement {
     this._newMeasurement.date = this.dateControl.value;
     this._newMeasurement.weight = this.weightControl.value;
     this._newMeasurement.bodyFat = this.bodyFatControl.value;
@@ -51,11 +51,15 @@ export class EditMeasurementsComponent implements OnInit {
     this._measurementService.createMeasurement(this._newMeasurement).subscribe(() => this._measurementComponent.editMeasurement());
     return this._newMeasurement;
   }
-   public save() {
+  public save() {
     this._measurementService.createMeasurement(this.getMeasurement()).subscribe(() => this._measurementComponent.editMeasurement());
   }
 
-  public setMeasurement(measurement: Measurement){
+  public updateMeasurement(){
+    this._measurementService.updateMeasurement(this.getMeasurement()).subscribe(() => this._measurementComponent.editMeasurement());
+  }
+
+  public setMeasurement(measurement: Measurement) {
     this.dateControl.setValue(measurement.date);
     this.weightControl.setValue(measurement.weight);
     this.bodyFatControl.setValue(measurement.bodyFat);
@@ -63,6 +67,6 @@ export class EditMeasurementsComponent implements OnInit {
     this.bellyControl.setValue(measurement.belly);
     this.chestControl.setValue(measurement.chest);
     this.hipsControl.setValue(measurement.hips);
-    
+
   }
 }

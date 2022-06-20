@@ -1,7 +1,13 @@
 <div id=edit>
-    <div class="title">
+    <div class="title" *ngIf="!this.update">
         <h1>Add Measurement</h1>
         <button (click)="this.save()" class="white-icon" mat-icon-button>
+            <mat-icon class="white-icon">done</mat-icon>
+        </button>
+    </div>
+    <div class="title" *ngIf="this.update">
+        <h1>Update Measurement</h1>
+        <button (click)="this.updateMeasurement()" class="white-icon" mat-icon-button>
             <mat-icon class="white-icon">done</mat-icon>
         </button>
     </div>
