@@ -1,3 +1,16 @@
 #measurementForm{
     width: 400px;
 }
+mat-form-field{
+    width: 110px;
+    margin: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+}
+.title {
+    display: flex;
+    flex-direction: row;
+}
