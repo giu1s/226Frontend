@@ -9,7 +9,7 @@ import { Service } from '../service';
   providedIn: 'root'
 })
 
-export class UserService extends Service<User> {
+export class UserService implements Service<User> {
   private _httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -20,7 +20,6 @@ export class UserService extends Service<User> {
   }
   
   constructor(private _http: HttpClient) {
-    super();
   }
 
   public getAll(): Observable<User[]> {
