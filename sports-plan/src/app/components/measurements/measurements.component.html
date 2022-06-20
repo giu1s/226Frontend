@@ -3,59 +3,68 @@
         <button mat-raised-button (click)="addData()">
             Add data
         </button>
+        <button *ngIf="this.currentMeasurement" mat-raised-button (click)="updateData()">
+            Update data
+        </button>
+        <button *ngIf="this.currentMeasurement" mat-raised-button (click)="removeData()">
+            Delete data
+        </button>
         <!-- <button mat-raised-button [disabled]="!measurements.length" (click)="removeData()">
             Remove data
         </button> -->
     </div>
+    <section class="table-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="measurements" class="mat-elevation-z8">
+            <!-- date Column -->
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>Date</th>
+                <td mat-cell *matCellDef="let element">{{element.date}}</td>
+            </ng-container>
 
-    <table mat-table [dataSource]="measurements" class="mat-elevation-z8">
-        <!-- date Column -->
-        <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef>Date</th>
-            <td mat-cell *matCellDef="let element">{{element.date}}</td>
-        </ng-container>
+            <!-- Name weight -->
+            <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef>Weight</th>
+                <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+            </ng-container>
 
-        <!-- Name weight -->
-        <ng-container matColumnDef="weight">
-            <th mat-header-cell *matHeaderCellDef>Weight</th>
-            <td mat-cell *matCellDef="let element">{{element.weight}}</td>
-        </ng-container>
+            <!-- Weight bodyFat -->
+            <ng-container matColumnDef="bodyFat">
+                <th mat-header-cell *matHeaderCellDef>BodyFat</th>
+                <td mat-cell *matCellDef="let element">{{element.bodyFat}}</td>
+            </ng-container>
 
-        <!-- Weight bodyFat -->
-        <ng-container matColumnDef="bodyFat">
-            <th mat-header-cell *matHeaderCellDef>BodyFat</th>
-            <td mat-cell *matCellDef="let element">{{element.bodyFat}}</td>
-        </ng-container>
-
-        <!-- Symbol waist -->
-        <ng-container matColumnDef="waist">
-            <th mat-header-cell *matHeaderCellDef>Waist</th>
-            <td mat-cell *matCellDef="let element">{{element.waist}}</td>
-        </ng-container>
-
-
-        <!-- belly Column -->
-        <ng-container matColumnDef="belly">
-            <th mat-header-cell *matHeaderCellDef>Belly</th>
-            <td mat-cell *matCellDef="let element">{{element.belly}}</td>
-        </ng-container>
+            <!-- Symbol waist -->
+            <ng-container matColumnDef="waist">
+                <th mat-header-cell *matHeaderCellDef>Waist</th>
+                <td mat-cell *matCellDef="let element">{{element.waist}}</td>
+            </ng-container>
 
 
-        <!-- chest Column -->
-        <ng-container matColumnDef="chest">
-            <th mat-header-cell *matHeaderCellDef>Chest</th>
-            <td mat-cell *matCellDef="let element">{{element.chest}}</td>
-        </ng-container>
+            <!-- belly Column -->
+            <ng-container matColumnDef="belly">
+                <th mat-header-cell *matHeaderCellDef>Belly</th>
+                <td mat-cell *matCellDef="let element">{{element.belly}}</td>
+            </ng-container>
 
-        <!-- hips Column -->
-        <ng-container matColumnDef="hips">
-            <th mat-header-cell *matHeaderCellDef>Hips</th>
-            <td mat-cell *matCellDef="let element">{{element.hips}}</td>
-        </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+            <!-- chest Column -->
+            <ng-container matColumnDef="chest">
+                <th mat-header-cell *matHeaderCellDef>Chest</th>
+                <td mat-cell *matCellDef="let element">{{element.chest}}</td>
+            </ng-container>
+
+            <!-- hips Column -->
+            <ng-container matColumnDef="hips">
+                <th mat-header-cell *matHeaderCellDef>Hips</th>
+                <td mat-cell *matCellDef="let element">{{element.hips}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row
+            (click)="choose(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+    </section>
 </div>
 <br>
-<sports-edit-measurements *ngIf="this.edit"></sports-edit-measurements>
+<sports-edit-measurements [measurement]="this.currentMeasurement" *ngIf="this.edit"></sports-edit-measurements>

@@ -9,9 +9,18 @@ element.style {
 
 th,
 td {
-    width: 150px;
+    width: 100px;
 }
 
-#middle{
-    text-align: center; 
+#middle {
+    text-align: center;
 }
+
+.table-container {
+    height: 300px;
+    overflow: auto;
+}
+
+.row-is-clicked {
+    font-weight: bold;
+  }

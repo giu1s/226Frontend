@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { User } from './user.model';
+import { Service } from '../service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class UserService {
-
+export class UserService implements Service<User> {
   private _httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -20,27 +20,42 @@ export class UserService {
   }
   
   constructor(private _http: HttpClient) {
-    
-   }
+  }
 
-
-  public getAllUser(): Observable<User[]> {
+  public getAll(): Observable<User[]> {
     return this._http.get<User[]>('http://localhost:10000/api/allusers', this._httpOptions);
   }
-
-  public getUser(id: number): Observable<User>{
+  public get(id: number): Observable<User> {
     return this._http.get<User>('http://localhost:10000/api/user/'+id, this._httpOptions);
   }
-
-  public deleteUser(id: number): Observable<User>{
+  public delete(id: number): Observable<User> {
     return this._http.delete<User>('http://localhost:10000/api/user/'+id, this._httpOptions);
   }
+  public update(object: User): Observable<User> {
+    return this._http.post<User>('http://localhost:10000/api/user', object, this._httpOptions);
+  }
+  public create(object: User): Observable<User> {
+    return this._http.post<User>('http://localhost:10000/api/user', object, this._httpOptions);
+  }
 
-  public createUser(user: User): Observable<User>{
-    return this._http.post<User>('http://localhost:10000/api/user', user, this._httpOptions);
-  }
+
+  // public getAllUser(): Observable<User[]> {
+  //   return this._http.get<User[]>('http://localhost:10000/api/allusers', this._httpOptions);
+  // }
+
+  // public getUser(id: number): Observable<User>{
+  //   return this._http.get<User>('http://localhost:10000/api/user/'+id, this._httpOptions);
+  // }
+
+  // public deleteUser(id: number): Observable<User>{
+  //   return this._http.delete<User>('http://localhost:10000/api/user/'+id, this._httpOptions);
+  // }
+
+  // public createUser(user: User): Observable<User>{
+  //   return this._http.post<User>('http://localhost:10000/api/user', user, this._httpOptions);
+  // }
   
-  public updateUser(user: User): Observable<User>{
-    return this._http.put<User>('http://localhost:10000/api/user', user, this._httpOptions);
-  }
+  // public updateUser(user: User): Observable<User>{
+  //   return this._http.put<User>('http://localhost:10000/api/user', user, this._httpOptions);
+  // }
 }
