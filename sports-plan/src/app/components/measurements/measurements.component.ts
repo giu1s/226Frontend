@@ -44,8 +44,8 @@ export class MeasurementsComponent implements OnInit {
   }
 
   removeData() {
-    // this.dataSource.pop();
-    // this.table.renderRows();
+    console.log(this.currentMeasurement.id);
+    this._measurementService.deleteMeasurement(this.currentMeasurement.id).subscribe(() => this.getAllMeasurements);
   }
 
   // TODO: move this to user service
@@ -53,7 +53,7 @@ export class MeasurementsComponent implements OnInit {
     if (this.edit) {
       this.edit = false;
       this.getAllMeasurements();
-      console.log(this.measurements);
+      this.currentMeasurement = {id:0, date:"", weight:0, bodyFat:0, waist:0, belly:0, chest:0, hips:0};
     }
     else this.edit = true;
   }

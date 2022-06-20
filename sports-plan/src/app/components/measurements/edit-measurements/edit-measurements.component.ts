@@ -34,7 +34,7 @@ export class EditMeasurementsComponent implements OnInit {
     private _measurementComponent: MeasurementsComponent) { }
 
   ngOnInit(): void {
-    if (this.measurement) {
+    if (this.measurement.id != 0) {
       this.setMeasurement(this.measurement);
       this.update = true;
     }
@@ -48,7 +48,6 @@ export class EditMeasurementsComponent implements OnInit {
     this._newMeasurement.belly = this.bellyControl.value;
     this._newMeasurement.chest = this.chestControl.value;
     this._newMeasurement.hips = this.hipsControl.value;
-    this._measurementService.createMeasurement(this._newMeasurement).subscribe(() => this._measurementComponent.editMeasurement());
     return this._newMeasurement;
   }
   public save() {

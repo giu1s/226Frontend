@@ -25,7 +25,7 @@ export class EditUserComponent implements OnInit {
   
 
   public getUserDetails(){
-    this._userService.getUser(1).subscribe(user => {
+    this._userService.get(1).subscribe(user => {
       this.currentUser = user
       this.setForm();
     });
@@ -36,7 +36,7 @@ export class EditUserComponent implements OnInit {
     this.currentUser.lastname = this.lastnameControl.value;
     this.currentUser.birthdate = this.birthdateControl.value;
     this.currentUser.height = this.heightControl.value;
-    this._userService.updateUser(this.currentUser).subscribe();
+    this._userService.update(this.currentUser).subscribe();
     this._userDetailsComponent.editUser();
   }
 

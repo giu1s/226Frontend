@@ -6,6 +6,9 @@
         <button *ngIf="this.currentMeasurement" mat-raised-button (click)="updateData()">
             Update data
         </button>
+        <button *ngIf="this.currentMeasurement" mat-raised-button (click)="removeData()">
+            Delete data
+        </button>
         <!-- <button mat-raised-button [disabled]="!measurements.length" (click)="removeData()">
             Remove data
         </button> -->
