@@ -58,7 +58,6 @@ export class MeasurementsComponent implements OnInit {
   }
 
   public updateData(){
-    console.log(this.currentMeasurement.id);
     this.editMeasurement();
   }
 

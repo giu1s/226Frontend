@@ -32,7 +32,7 @@ export class UserService implements Service<User> {
     return this._http.delete<User>('http://localhost:10000/api/user/'+id, this._httpOptions);
   }
   public update(object: User): Observable<User> {
-    return this._http.post<User>('http://localhost:10000/api/user', object, this._httpOptions);
+    return this._http.put<User>('http://localhost:10000/api/user', object, this._httpOptions);
   }
   public create(object: User): Observable<User> {
     return this._http.post<User>('http://localhost:10000/api/user', object, this._httpOptions);
