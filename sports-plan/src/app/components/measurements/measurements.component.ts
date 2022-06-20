@@ -4,6 +4,7 @@ import { MeasurementService } from 'src/app/shared/measurement/measurement.servi
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatTable } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({

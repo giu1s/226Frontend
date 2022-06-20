@@ -19,7 +19,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { EditMeasurementsComponent } from './components/measurements/edit-measurements/edit-measurements.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-
 @NgModule({
   declarations: [
     AppComponent,

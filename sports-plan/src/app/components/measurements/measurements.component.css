@@ -12,6 +12,11 @@ td {
     width: 150px;
 }
 
-#middle{
-    text-align: center; 
+#middle {
+    text-align: center;
+}
+
+.table-container {
+    height: 400px;
+    overflow: auto;
 }
