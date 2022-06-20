@@ -20,3 +20,7 @@ td {
     height: 400px;
     overflow: auto;
 }
+
+.row-is-clicked {
+    font-weight: bold;
+  }

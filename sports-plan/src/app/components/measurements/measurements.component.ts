@@ -5,6 +5,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { MatTable } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
+import { EditMeasurementsComponent } from './edit-measurements/edit-measurements.component';
 
 
 @Component({
@@ -19,11 +20,15 @@ export class MeasurementsComponent implements OnInit {
   public measurements!: Measurement[];
   public edit: boolean = false;
   public selection = new SelectionModel<Measurement>(true, []);
+  public currentMeasurement: Measurement = {id:0, date:"", weight:0, bodyFat:0, waist:0, belly:0, chest:0, hips:0};
+  
 
   @ViewChild(MatTable)
   table!: MatTable<Measurement>;
 
-  constructor(private _measurementService: MeasurementService) { }
+  constructor(private _measurementService: MeasurementService
+    
+    ) { }
 
   ngOnInit(): void {
     this.getAllMeasurements();
@@ -31,7 +36,6 @@ export class MeasurementsComponent implements OnInit {
 
   public getAllMeasurements() {
     this._measurementService.getAllMeasurement().subscribe(measurements => {
-      console.log(this.measurements)
       this.measurements = measurements})
   }
 
@@ -54,5 +58,12 @@ export class MeasurementsComponent implements OnInit {
     else this.edit = true;
   }
 
+  public updateData(){
+    this.editMeasurement();
+  }
+
+  public choose(measurement: Measurement){
+    this.currentMeasurement = measurement;
+  }
 
 }

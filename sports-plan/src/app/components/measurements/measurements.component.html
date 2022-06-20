@@ -3,6 +3,9 @@
         <button mat-raised-button (click)="addData()">
             Add data
         </button>
+        <button *ngIf="this.currentMeasurement" mat-raised-button (click)="updateData()">
+            Update data
+        </button>
         <!-- <button mat-raised-button [disabled]="!measurements.length" (click)="removeData()">
             Remove data
         </button> -->
@@ -54,10 +57,11 @@
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr mat-row
+            (click)="choose(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
 
         </table>
     </section>
 </div>
 <br>
-<sports-edit-measurements *ngIf="this.edit"></sports-edit-measurements>
+<sports-edit-measurements [measurement]="this.currentMeasurement" *ngIf="this.edit"></sports-edit-measurements>
