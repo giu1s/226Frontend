@@ -25,7 +25,7 @@ export class MeasurementService {
 
 
   public getAllMeasurement(): Observable<Measurement[]> {
-    return this._http.get<Measurement[]>('http://localhost:10000/api/allmeasurements', this._httpOptions);
+    return this._http.get<Measurement[]>('http://localhost:10000/api/allmeasurement', this._httpOptions);
   }
 
   public getMeasurement(id: number): Observable<Measurement>{
