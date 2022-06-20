@@ -1,17 +1,17 @@
 <div id="full-width">
     <div id="middle">
-        <button mat-raised-button (click)="addData()">
+        <button mat-raised-button *ngIf="!this.edit"(click)="addData()">
             Add data
         </button>
-        <button *ngIf="this.currentMeasurement.id > 0" mat-raised-button (click)="updateData()">
+        <button *ngIf="this.edit" mat-raised-button (click)="this.editMeasurement()">
+            Cancel
+        </button>
+        <button *ngIf="this.currentMeasurement.id > 0 && !this.edit" mat-raised-button (click)="updateData()">
             Update data
         </button>
-        <button *ngIf="this.currentMeasurement.id > 0" mat-raised-button (click)="removeData()">
+        <button *ngIf="this.currentMeasurement.id > 0 && !this.edit" mat-raised-button (click)="removeData()">
             Delete data
         </button>
-        <!-- <button mat-raised-button [disabled]="!measurements.length" (click)="removeData()">
-            Remove data
-        </button> -->
     </div>
     <section class="table-container mat-elevation-z8" tabindex="0">
         <table mat-table [dataSource]="measurements" class="mat-elevation-z8">
