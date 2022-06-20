@@ -44,8 +44,7 @@ export class MeasurementsComponent implements OnInit {
   }
 
   removeData() {
-    console.log(this.currentMeasurement.id);
-    this._measurementService.deleteMeasurement(this.currentMeasurement.id).subscribe(() => this.getAllMeasurements);
+    this._measurementService.deleteMeasurement(this.currentMeasurement.id).subscribe(() => this.getAllMeasurements());
   }
 
   // TODO: move this to user service
@@ -59,6 +58,7 @@ export class MeasurementsComponent implements OnInit {
   }
 
   public updateData(){
+    console.log(this.currentMeasurement.id);
     this.editMeasurement();
   }
 

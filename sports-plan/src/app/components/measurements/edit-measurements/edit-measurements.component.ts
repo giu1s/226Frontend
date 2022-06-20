@@ -55,7 +55,9 @@ export class EditMeasurementsComponent implements OnInit {
   }
 
   public updateMeasurement(){
-    this._measurementService.updateMeasurement(this.getMeasurement()).subscribe(() => this._measurementComponent.editMeasurement());
+    const updatedMeasurerment = this.getMeasurement();
+    updatedMeasurerment.id = this.measurement.id;
+    this._measurementService.updateMeasurement(updatedMeasurerment).subscribe(() => this._measurementComponent.editMeasurement());
   }
 
   public setMeasurement(measurement: Measurement) {
