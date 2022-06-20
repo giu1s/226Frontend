@@ -1,20 +1,20 @@
 <div id="user">
     <div *ngIf="!edit">
         <div id=userDetails>
-            <div class="title">
-                <h1>Details</h1>
-                <button (click)="this.editUser()" class="white-icon" mat-icon-button>
-                    <mat-icon class="white-icon">edit</mat-icon>
-                </button>
-            </div>
             <!-- TODO: change to mat-card(maybe) Wird gemacht!-->
-            <div>
+            <mat-card>
+                <div class="title">
+                    <h1>Details</h1>
+                    <button (click)="this.editUser()" class="white-icon" mat-icon-button>
+                        <mat-icon class="white-icon">edit</mat-icon>
+                    </button>
+                </div>
                 <p>Firstname: {{currentUser.firstname}}</p>
                 <p>Lastname: {{currentUser.lastname}}</p>
                 <p>Birthdate: {{currentUser.birthdate}}</p>
                 <p>Height: {{currentUser.height}} cm</p>
+            </mat-card>
             </div>
-        </div>
     </div>
     <div *ngIf="edit">
         <sports-edit-user></sports-edit-user>
