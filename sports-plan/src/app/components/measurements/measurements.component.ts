@@ -46,15 +46,14 @@ export class MeasurementsComponent implements OnInit {
   removeData() {
     this._measurementService.deleteMeasurement(this.currentMeasurement.id).subscribe(() => this.getAllMeasurements());
   }
-
-  // TODO: move this to user service
   public editMeasurement() {
-    if (this.edit) {
-      this.edit = false;
-      this.getAllMeasurements();
-      this.currentMeasurement = {id:0, date:"", weight:0, bodyFat:0, waist:0, belly:0, chest:0, hips:0};
-    }
-    else this.edit = true;
+    this._measurementService.edit().subscribe(edit => {
+      this.edit = edit;
+      if (!this.edit){
+        this.getAllMeasurements();
+        this.currentMeasurement = {id:0, date:"", weight:0, bodyFat:0, waist:0, belly:0, chest:0, hips:0};
+      }
+  })
   }
 
   public updateData(){

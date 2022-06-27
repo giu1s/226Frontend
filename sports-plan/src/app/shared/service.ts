@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 
+// interface which contains all methods for a service
 export interface Service<T> {
    getAll(): Observable<T[]>;
    get(id: number): Observable<T>;

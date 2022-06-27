@@ -10,7 +10,7 @@ import { User } from 'src/app/shared/user/user.model';
 
 export class UserDetailsComponent implements OnInit {
 
-  public currentUser: User = {id:0 , firstname: "", lastname: "", birthdate: "", height: 0 };
+  public currentUser: User = { id: 0, firstname: "", lastname: "", birthdate: "", height: 0 };
   public users!: User[];
   public edit: boolean = false;
 
@@ -21,22 +21,22 @@ export class UserDetailsComponent implements OnInit {
     this.getUserDetails();
   }
 
-  public getAllUser(){
+  public getAllUser() {
     this._userService.getAll().subscribe(users => {
       this.users = users;
     });
   }
 
-  public getUserDetails(){
+  public getUserDetails() {
     this._userService.get(1).subscribe(user => this.currentUser = user);
   }
 
-  // TODO: move this to user service
-  public editUser(){
-    if (this.edit) {
-      this.edit = false;
-      this.getUserDetails();
-    }
-    else this.edit = true;
+  public editUser() {
+    this._userService.edit().subscribe(edit => {
+      this.edit = edit
+      if (!this.edit) {
+        this.getUserDetails();
+      }
+    });
   }
 }

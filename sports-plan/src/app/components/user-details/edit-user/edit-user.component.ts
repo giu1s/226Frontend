@@ -16,8 +16,7 @@ export class EditUserComponent implements OnInit {
   public heightControl = new FormControl();
   public birthdateControl = new FormControl();
 
-  constructor(private _userService: UserService,
-    private _userDetailsComponent:  UserDetailsComponent) { }
+  constructor(private _userService: UserService) { }
 
   ngOnInit(): void {
     this.getUserDetails();
@@ -37,7 +36,7 @@ export class EditUserComponent implements OnInit {
     this.currentUser.birthdate = this.birthdateControl.value;
     this.currentUser.height = this.heightControl.value;
     this._userService.update(this.currentUser).subscribe();
-    this._userDetailsComponent.editUser();
+    this._userService.edit().subscribe();
   }
 
   public setForm(){

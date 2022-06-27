@@ -30,8 +30,7 @@ export class EditMeasurementsComponent implements OnInit {
     hips: 0
   };
 
-  constructor(private _measurementService: MeasurementService,
-    private _measurementComponent: MeasurementsComponent) { }
+  constructor(private _measurementService: MeasurementService) { }
 
   ngOnInit(): void {
     if (this.measurement.id != 0) {
@@ -51,13 +50,13 @@ export class EditMeasurementsComponent implements OnInit {
     return this._newMeasurement;
   }
   public save() {
-    this._measurementService.createMeasurement(this.getMeasurement()).subscribe(() => this._measurementComponent.editMeasurement());
+    this._measurementService.createMeasurement(this.getMeasurement()).subscribe(() => this._measurementService.edit());
   }
 
   public updateMeasurement(){
     const updatedMeasurerment = this.getMeasurement();
     updatedMeasurerment.id = this.measurement.id;
-    this._measurementService.updateMeasurement(updatedMeasurerment).subscribe(() => this._measurementComponent.editMeasurement());
+    this._measurementService.updateMeasurement(updatedMeasurerment).subscribe(() => this._measurementService.edit());
   }
 
   public setMeasurement(measurement: Measurement) {
